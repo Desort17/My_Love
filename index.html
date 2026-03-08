@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For My Love</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -19,158 +20,135 @@ body{
 font-family:'Montserrat',sans-serif;
 background:linear-gradient(135deg,#ffd1dc,#ffb7c5);
 min-height:100vh;
-display:flex;
-flex-direction:column;
-align-items:center;
 overflow-x:hidden;
 color:#8a1c4a;
 }
 
+/* PASSWORD */
+
 .password-modal{
 position:fixed;
-top:0;
-left:0;
 width:100%;
 height:100%;
-background:rgba(255,182,193,0.95);
+background:#ffc0cb;
 display:flex;
 justify-content:center;
 align-items:center;
-z-index:100;
+z-index:10;
 }
 
-.password-content{
+.password-box{
 background:white;
 padding:30px;
-border-radius:20px;
+border-radius:15px;
 text-align:center;
-width:300px;
 }
 
-.password-content h2{
-font-family:'Dancing Script',cursive;
-color:#d81b60;
-margin-bottom:15px;
-}
-
-.password-input{
-width:100%;
+.password-box input{
 padding:10px;
 border-radius:10px;
-border:2px solid #ffb7c5;
-margin-bottom:10px;
-text-align:center;
+border:2px solid pink;
+margin-top:10px;
+width:200px;
 }
 
-.submit-btn{
-background:#d81b60;
-color:white;
-border:none;
+.password-box button{
+margin-top:10px;
 padding:10px 20px;
+border:none;
+background:#ff4081;
+color:white;
 border-radius:10px;
 cursor:pointer;
 }
 
-.welcome-screen{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:linear-gradient(135deg,#ffd1dc,#ffb7c5);
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:99;
-}
+/* TYPING MESSAGE */
 
-.welcome-message{
+.typing{
 font-family:'Dancing Script',cursive;
-font-size:45px;
-color:#d81b60;
+font-size:40px;
+text-align:center;
+margin-top:60px;
 }
 
-.container{
-width:100%;
-max-width:900px;
-padding:20px;
-margin-top:50px;
-}
+/* TABS */
 
 .tabs{
 display:flex;
 justify-content:center;
 gap:10px;
-margin-bottom:30px;
+margin:30px;
 flex-wrap:wrap;
 }
 
 .tab{
 background:white;
-border:none;
 padding:12px 20px;
-border-radius:40px;
+border-radius:30px;
 cursor:pointer;
-font-weight:600;
+border:none;
 }
 
 .tab.active{
 background:#ffd1dc;
 }
 
-.content-area{
+.content{
+max-width:900px;
+margin:auto;
 background:white;
-border-radius:20px;
 padding:30px;
-min-height:400px;
+border-radius:20px;
 }
 
-.tab-content{
+.section{
 display:none;
 }
 
-.tab-content.active{
+.section.active{
 display:block;
 }
 
-.letter{
-padding:20px;
-background:#fff5f7;
-border-radius:15px;
-border:2px dashed #ffb7c5;
-cursor:pointer;
-}
-
-.letter-content{
-max-height:0;
-overflow:hidden;
-transition:0.5s;
-}
-
-.letter.expanded .letter-content{
-max-height:400px;
-}
+/* NOTES */
 
 .note{
-background:#fce4ec;
+background:#ffe4ec;
 padding:15px;
 border-radius:10px;
 margin-bottom:10px;
-font-size:16px;
 }
+
+/* GALLERY */
 
 .gallery{
 display:grid;
-grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
 gap:15px;
 }
 
-.gallery img{
+.pic{
+position:relative;
+}
+
+.pic img{
 width:100%;
-height:200px;
+height:220px;
 object-fit:cover;
 border-radius:10px;
 }
+
+.quote{
+position:absolute;
+bottom:0;
+background:rgba(0,0,0,0.5);
+color:white;
+width:100%;
+padding:8px;
+font-size:14px;
+border-radius:0 0 10px 10px;
+}
+
+/* GIFTS */
 
 .gifts{
 display:grid;
@@ -179,9 +157,6 @@ gap:20px;
 }
 
 .gift{
-background:#fff5f7;
-border-radius:15px;
-padding:15px;
 text-align:center;
 }
 
@@ -190,7 +165,33 @@ width:100%;
 height:180px;
 object-fit:cover;
 border-radius:10px;
-margin-bottom:10px;
+}
+
+/* HEARTS */
+
+.heart{
+position:fixed;
+color:red;
+font-size:20px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-10vh);}
+}
+
+/* PETALS */
+
+.petal{
+position:fixed;
+font-size:20px;
+animation:fall 8s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh) rotate(0deg);}
+100%{transform:translateY(110vh) rotate(360deg);}
 }
 
 </style>
@@ -198,72 +199,72 @@ margin-bottom:10px;
 
 <body>
 
-<div class="password-modal" id="passwordModal">
-<div class="password-content">
-<h2>Enter the secret code</h2>
-<input type="password" id="passwordInput" class="password-input" placeholder="Our special word">
-<button class="submit-btn" id="submitPassword">Enter</button>
-</div>
-</div>
+<audio autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
 
-<div class="welcome-screen" id="welcomeScreen" style="display:none;">
-<h1 class="welcome-message">Welcome my love 💖</h1>
-</div>
+<div class="password-modal" id="lock">
 
-<div class="container" id="mainContent" style="display:none;">
-
-<div class="tabs">
-<button class="tab active" data-tab="love">❤️ Love Letter</button>
-<button class="tab" data-tab="notes">📝 Notes</button>
-<button class="tab" data-tab="gallery">🌷 Gallery</button>
-<button class="tab" data-tab="gifts">🎁 Gifts</button>
-</div>
-
-<div class="content-area">
-
-<div class="tab-content active" id="love">
-
-<div class="letter" id="loveLetter">
-<h3>A Letter For You</h3>
-
-<div class="letter-content">
-
-<p>My love,</p>
-<p>You are the most beautiful part of my life.</p>
-<p>Your smile brightens my darkest days.</p>
-<p>I promise to protect your heart and always care for you.</p>
-<p>Forever yours ❤️</p>
-
+<div class="password-box">
+<h2>Enter Secret Password</h2>
+<input type="password" id="pass">
+<br>
+<button onclick="check()">Enter</button>
 </div>
 
 </div>
 
-</div>
+<h1 class="typing" id="typing"></h1>
 
-<div class="tab-content" id="notes">
+<div class="tabs" id="tabs" style="display:none">
 
-<div class="note">Please take care of yourself, because you mean everything to me.</div>
-<div class="note">Don't forget to eat and rest, I worry about you.</div>
-<div class="note">Your happiness is the most important thing in my life.</div>
-<div class="note">Whenever you feel sad, remember I am always here for you.</div>
-<div class="note">You are precious, never forget that.</div>
+<button class="tab active" data="notes">Notes</button>
+<button class="tab" data="gallery">Gallery</button>
+<button class="tab" data="gifts">Gifts</button>
 
 </div>
 
-<div class="tab-content" id="gallery">
+<div class="content" id="content" style="display:none">
+
+<div class="section active" id="notes">
+
+<div class="note">Take care of yourself please ❤️</div>
+<div class="note">Don't skip meals my love</div>
+<div class="note">Your smile is my favorite thing</div>
+<div class="note">Whenever you feel sad remember I'm here</div>
+<div class="note">You are the most beautiful part of my life</div>
+
+</div>
+
+<div class="section" id="gallery">
 
 <div class="gallery">
 
+<div class="pic">
 <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7">
+<div class="quote">Love is when two hearts become one</div>
+</div>
+
+<div class="pic">
 <img src="https://images.unsplash.com/photo-1494774157365-9e04c6720e47">
-<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
-<img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659">
+<div class="quote">Every love story is beautiful but ours is my favorite</div>
+</div>
 
+<div class="pic">
+<img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2">
+<div class="quote">You are my today and all of my tomorrows</div>
+</div>
+
+<div class="pic">
+<img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f">
+<div class="quote">Forever is a long time but I want to spend it with you</div>
 </div>
 
 </div>
 
-<div class="tab-content" id="gifts">
+</div>
+
+<div class="section" id="gifts">
 
 <div class="gifts">
 
@@ -282,13 +283,6 @@ margin-bottom:10px;
 <p>Luxury Chocolate Gift</p>
 </div>
 
-<div class="gift">
-<img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
-<p>Sweet Love Chocolates</p>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -297,65 +291,85 @@ margin-bottom:10px;
 
 <script>
 
-const passwordModal=document.getElementById("passwordModal")
-const welcomeScreen=document.getElementById("welcomeScreen")
-const mainContent=document.getElementById("mainContent")
-const passwordInput=document.getElementById("passwordInput")
-const submitPassword=document.getElementById("submitPassword")
+/* PASSWORD */
 
-submitPassword.addEventListener("click",function(){
+function check(){
 
-if(passwordInput.value==="My_Love"){
+if(document.getElementById("pass").value==="My_Love"){
 
-passwordModal.style.display="none"
-
-welcomeScreen.style.display="flex"
-
-setTimeout(function(){
-
-welcomeScreen.style.display="none"
-
-mainContent.style.display="block"
-
-},2000)
-
-}else{
-
-alert("Wrong password")
+document.getElementById("lock").style.display="none"
+document.getElementById("tabs").style.display="flex"
+document.getElementById("content").style.display="block"
 
 }
 
-})
+else alert("Wrong Password")
 
-passwordInput.addEventListener("keypress",function(e){
+}
 
-if(e.key==="Enter") submitPassword.click()
+/* TABS */
 
-})
+document.querySelectorAll(".tab").forEach(btn=>{
 
-const tabs=document.querySelectorAll(".tab")
-const contents=document.querySelectorAll(".tab-content")
+btn.onclick=function(){
 
-tabs.forEach(tab=>{
-
-tab.addEventListener("click",function(){
-
-tabs.forEach(t=>t.classList.remove("active"))
-contents.forEach(c=>c.classList.remove("active"))
+document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"))
+document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"))
 
 this.classList.add("active")
-
-document.getElementById(this.dataset.tab).classList.add("active")
-
-})
-
-})
-
-document.getElementById("loveLetter").onclick=function(){
-
-this.classList.toggle("expanded")
+document.getElementById(this.getAttribute("data")).classList.add("active")
 
 }
+
+})
+
+/* TYPING */
+
+let text="Welcome my love ❤️ I made this little world just for you..."
+let i=0
+
+function typing(){
+
+if(i<text.length){
+
+document.getElementById("typing").innerHTML+=text.charAt(i)
+i++
+
+setTimeout(typing,60)
+
+}
+
+}
+
+typing()
+
+/* HEARTS */
+
+setInterval(()=>{
+
+let h=document.createElement("div")
+h.className="heart"
+h.innerHTML="❤️"
+h.style.left=Math.random()*100+"%"
+document.body.appendChild(h)
+
+setTimeout(()=>h.remove(),6000)
+
+},400)
+
+/* PETALS */
+
+setInterval(()=>{
+
+let p=document.createElement("div")
+p.className="petal"
+p.innerHTML="🌸"
+p.style.left=Math.random()*100+"%"
+document.body.appendChild(p)
+
+setTimeout(()=>p.remove(),8000)
+
+},600)
 
 </script>
 
