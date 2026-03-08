@@ -10,11 +10,7 @@
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
 font-family:'Montserrat',sans-serif;
@@ -24,7 +20,7 @@ overflow-x:hidden;
 color:#8a1c4a;
 }
 
-/* PASSWORD */
+/* PASSWORD SCREEN */
 
 .password-modal{
 position:fixed;
@@ -66,7 +62,7 @@ cursor:pointer;
 
 .typing{
 font-family:'Dancing Script',cursive;
-font-size:40px;
+font-size:42px;
 text-align:center;
 margin-top:60px;
 }
@@ -87,11 +83,14 @@ padding:12px 20px;
 border-radius:30px;
 cursor:pointer;
 border:none;
+font-weight:600;
 }
 
 .tab.active{
 background:#ffd1dc;
 }
+
+/* CONTENT */
 
 .content{
 max-width:900px;
@@ -156,9 +155,7 @@ grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
 gap:20px;
 }
 
-.gift{
-text-align:center;
-}
+.gift{text-align:center;}
 
 .gift img{
 width:100%;
@@ -199,9 +196,12 @@ animation:fall 8s linear infinite;
 
 <body>
 
+<!-- MUSIC -->
 <audio autoplay loop>
 <source src="music.mp3" type="audio/mpeg">
 </audio>
+
+<!-- PASSWORD -->
 
 <div class="password-modal" id="lock">
 
@@ -214,27 +214,69 @@ animation:fall 8s linear infinite;
 
 </div>
 
+<!-- TYPING MESSAGE -->
+
 <h1 class="typing" id="typing"></h1>
+
+<!-- TABS -->
 
 <div class="tabs" id="tabs" style="display:none">
 
-<button class="tab active" data="notes">Notes</button>
-<button class="tab" data="gallery">Gallery</button>
-<button class="tab" data="gifts">Gifts</button>
+<button class="tab active" data="letter">💌 Letter</button>
+<button class="tab" data="notes">📝 Notes</button>
+<button class="tab" data="gallery">📸 Gallery</button>
+<button class="tab" data="gifts">🎁 Gifts</button>
 
 </div>
+
+<!-- CONTENT -->
 
 <div class="content" id="content" style="display:none">
 
-<div class="section active" id="notes">
+<!-- LETTER -->
 
-<div class="note">Take care of yourself please ❤️</div>
-<div class="note">Don't skip meals my love</div>
-<div class="note">Your smile is my favorite thing</div>
-<div class="note">Whenever you feel sad remember I'm here</div>
-<div class="note">You are the most beautiful part of my life</div>
+<div class="section active" id="letter">
+
+<h2 style="font-family:'Dancing Script';font-size:35px;">A Letter For You</h2>
+
+<div class="note">
+
+<p>My love,</p>
+
+<p>
+From the moment you came into my life, everything became brighter.
+Your smile lights up my world and your voice brings peace to my heart.
+</p>
+
+<p>
+I may not always say it perfectly, but please remember this:
+you are the most beautiful part of my life.
+</p>
+
+<p>
+No matter what happens, I promise to always care for you,
+support you, and love you more every single day.
+</p>
+
+<p>Forever yours ❤️</p>
 
 </div>
+
+</div>
+
+<!-- NOTES -->
+
+<div class="section" id="notes">
+
+<div class="note">Please take care of yourself ❤️</div>
+<div class="note">Don't skip meals my love</div>
+<div class="note">Your happiness means everything to me</div>
+<div class="note">Whenever you're sad remember I'm here</div>
+<div class="note">You are precious and deeply loved</div>
+
+</div>
+
+<!-- GALLERY -->
 
 <div class="section" id="gallery">
 
@@ -242,7 +284,7 @@ animation:fall 8s linear infinite;
 
 <div class="pic">
 <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7">
-<div class="quote">Love is when two hearts become one</div>
+<div class="quote">Love is when two hearts beat as one</div>
 </div>
 
 <div class="pic">
@@ -257,12 +299,14 @@ animation:fall 8s linear infinite;
 
 <div class="pic">
 <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f">
-<div class="quote">Forever is a long time but I want to spend it with you</div>
+<div class="quote">Forever isn't long enough with you</div>
 </div>
 
 </div>
 
 </div>
+
+<!-- GIFTS -->
 
 <div class="section" id="gifts">
 
@@ -323,7 +367,7 @@ document.getElementById(this.getAttribute("data")).classList.add("active")
 
 })
 
-/* TYPING */
+/* TYPING MESSAGE */
 
 let text="Welcome my love ❤️ I made this little world just for you..."
 let i=0
@@ -334,7 +378,6 @@ if(i<text.length){
 
 document.getElementById("typing").innerHTML+=text.charAt(i)
 i++
-
 setTimeout(typing,60)
 
 }
@@ -343,7 +386,7 @@ setTimeout(typing,60)
 
 typing()
 
-/* HEARTS */
+/* FLOATING HEARTS */
 
 setInterval(()=>{
 
@@ -357,7 +400,7 @@ setTimeout(()=>h.remove(),6000)
 
 },400)
 
-/* PETALS */
+/* FALLING ROSES */
 
 setInterval(()=>{
 
