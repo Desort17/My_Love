@@ -151,18 +151,12 @@ transition:0.5s;
 max-height:400px;
 }
 
-.song{
-background:#f8e8ee;
-padding:15px;
-border-radius:10px;
-margin-bottom:10px;
-}
-
 .note{
 background:#fce4ec;
 padding:15px;
 border-radius:10px;
 margin-bottom:10px;
+font-size:16px;
 }
 
 .gallery{
@@ -178,14 +172,31 @@ object-fit:cover;
 border-radius:10px;
 }
 
+.gifts{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+gap:20px;
+}
+
+.gift{
+background:#fff5f7;
+border-radius:15px;
+padding:15px;
+text-align:center;
+}
+
+.gift img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:10px;
+margin-bottom:10px;
+}
+
 </style>
 </head>
 
 <body>
-
-<audio autoplay loop>
-<source src="music.mp3" type="audio/mpeg">
-</audio>
 
 <div class="password-modal" id="passwordModal">
 <div class="password-content">
@@ -203,9 +214,9 @@ border-radius:10px;
 
 <div class="tabs">
 <button class="tab active" data-tab="love">❤️ Love Letter</button>
-<button class="tab" data-tab="music">🎵 Music</button>
 <button class="tab" data-tab="notes">📝 Notes</button>
 <button class="tab" data-tab="gallery">🌷 Gallery</button>
+<button class="tab" data-tab="gifts">🎁 Gifts</button>
 </div>
 
 <div class="content-area">
@@ -218,38 +229,24 @@ border-radius:10px;
 <div class="letter-content">
 
 <p>My love,</p>
-
-<p>Every moment with you feels magical.</p>
-
-<p>Your smile lights up my world and your laughter is my favorite sound.</p>
-
-<p>I promise to always cherish you and stay beside you.</p>
-
-<p>Forever yours.</p>
+<p>You are the most beautiful part of my life.</p>
+<p>Your smile brightens my darkest days.</p>
+<p>I promise to protect your heart and always care for you.</p>
+<p>Forever yours ❤️</p>
 
 </div>
 
-</div>
-
-</div>
-
-<div class="tab-content" id="music">
-
-<div class="song">
-🎵 Hiwaga – Tatin DC
-</div>
-
-<div class="song">
-🎵 Wish – 16
 </div>
 
 </div>
 
 <div class="tab-content" id="notes">
 
-<div class="note">Take care always</div>
-<div class="note">Eat on time</div>
-<div class="note">You're mine.. always</div>
+<div class="note">Please take care of yourself, because you mean everything to me.</div>
+<div class="note">Don't forget to eat and rest, I worry about you.</div>
+<div class="note">Your happiness is the most important thing in my life.</div>
+<div class="note">Whenever you feel sad, remember I am always here for you.</div>
+<div class="note">You are precious, never forget that.</div>
 
 </div>
 
@@ -257,10 +254,38 @@ border-radius:10px;
 
 <div class="gallery">
 
-<img src="https://picsum.photos/300/200?1">
-<img src="https://picsum.photos/300/200?2">
-<img src="https://picsum.photos/300/200?3">
-<img src="https://picsum.photos/300/200?4">
+<img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7">
+<img src="https://images.unsplash.com/photo-1494774157365-9e04c6720e47">
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
+<img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659">
+
+</div>
+
+</div>
+
+<div class="tab-content" id="gifts">
+
+<div class="gifts">
+
+<div class="gift">
+<img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52">
+<p>Romantic Chocolate Box</p>
+</div>
+
+<div class="gift">
+<img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee">
+<p>Heart Chocolate</p>
+</div>
+
+<div class="gift">
+<img src="https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7">
+<p>Luxury Chocolate Gift</p>
+</div>
+
+<div class="gift">
+<img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
+<p>Sweet Love Chocolates</p>
+</div>
 
 </div>
 
